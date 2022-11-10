@@ -27,20 +27,41 @@ private byte seconds; //секунды
 
 ```c#
  public Time() //конструктор по умолчанию
-        {
-            this.hours = 0;
-            this.minutes = 0;
-            this.seconds = 0;
-        }
+ {
+     this.hours = 0;
+     this.minutes = 0;
+     this.seconds = 0;
+ }
 ```
 
-Конструктор **от трех целочисленных параметров** инициализирует точку с координатами (x,y,z) соответственно:
+Конструктор **от трех параметров типа byte** инициализирует время в формате HH:MM:SS соответственно:
 
 ```c#
-public Point(int x, int y, int z) //конструктор от трех целочисленных параметров
-  {
-  this.x = x;
-  this.y = y;
-  this.z = z;
+public Time(byte hours, byte minutes, byte seconds) //конструктор от трёх byte
+{
+    if(hours >= 24)
+    {
+        throw new OutOfTimeRangeException("Hours out of range"); //исключение (вне диапазона)
+    }
+
+    if(minutes >= 60)
+    {
+        throw new OutOfTimeRangeException("Minutes out of range");
+    }
+
+    if(seconds >= 60)
+    {
+        throw new OutOfTimeRangeException("Seconds out of range");
+    }
+
+    this.hours = hours;
+    this.minutes = minutes;
+    this.seconds = seconds;
 }
+```
+
+Внутри него происходит обработка исключений. Если какой-либо параметр выходит за рамки условий задачи выбрасывается исключение:
+
+```c#
+throw new OutOfTimeRangeException("Hours out of range")
 ```
