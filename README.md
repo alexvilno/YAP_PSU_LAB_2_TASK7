@@ -212,3 +212,19 @@ Console.WriteLine("01:00:01 > 01:00:00 ? " + (new Time(1, 0, 1) > new Time(1, 0,
 ```
 
 Все работает верно.
+
+Тесты вспомогательных методов: 
+```c#
+t1.RemoveMinutes(500);
+Console.WriteLine("Время t1 - 500 MIN = " + t1.ToString());
+t1.AddMinutes(123);
+Console.WriteLine("Время t1 + 123 MIN = " + t1.ToString());
+Console.WriteLine("Время t1 в минутах = " + t1.toMinutes());
+```
+*Вывод:*
+
+```
+Время t1 - 500 MIN = 15:41:00
+Время t1 + 123 MIN = 17:44:00
+Время t1 в минутах = 1064
+```
