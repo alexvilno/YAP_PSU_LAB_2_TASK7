@@ -65,3 +65,16 @@ public Time(byte hours, byte minutes, byte seconds) //конструктор о�
 ```c#
 throw new OutOfTimeRangeException("Hours out of range")
 ```
+
+## Методы
+
+Ниже преставлены реализованные **методы** класса **Time**:
+
+```c#
+public void AddSeconds(uint seconds); //добавление секунд к объекту типа ```Time```
+public void AddMinutes(uint minutes); //добавление минут к объекту типа ```Time```
+public void AddHours(byte hours); //добавление часов к объекту типа ```Time```
+public int toMinutes(); //переводит объект time в целое число &mdash минуты в пересчете(секунды отбрасываются)
+public void RemoveMinutes(uint minutes);  //вычитание минут из объекта типа ```Time```
+public override string ToString();
+```
